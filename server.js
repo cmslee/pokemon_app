@@ -1,7 +1,9 @@
 const express = require('express');
 
-const app = express();
+//data
+const pokemon = require('./models/pokemon');
 
+const app = express();
 const PORT = 3000;
 
 //* CONFIG
@@ -13,8 +15,12 @@ const PORT = 3000;
 //home
 app.get('/', (req, res) => {
     res.send('Welcome to the Pokemon App!')
-})
+});
 
+//index
+app.get('/pokemon', (req, res) => {
+    res.send(pokemon)
+});
 
 
 
