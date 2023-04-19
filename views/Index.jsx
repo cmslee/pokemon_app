@@ -11,11 +11,11 @@ function PokemonIndex (props) {
     return (
         <div style={myStyle}>
             <h1>All the Pokemon</h1>
-            {pokemon.map(mon => {
+            {pokemon.map((mon, i) => {
                 return(
                     <ul>
-                        <li key='pokemon'>
-                            {mon.name.charAt(0).toUpperCase()+mon.name.slice(1)}
+                        <li key={pokemon[i]}>
+                            <a href={`/pokemon/${i}`}>{mon.name.charAt(0).toUpperCase()+mon.name.slice(1)}</a>
                         </li>
                     </ul>
                 )     
