@@ -7,8 +7,11 @@ const app = express();
 const PORT = 3000;
 
 //* CONFIG
+app.set('view engine', 'jsx');
+app.engine('jsx', require('jsx-view-engine').createEngine());
 
 //* MIDDLEWARE
+app.use(express.urlencoded({extended: false}))
 
 //* ROUTES
 
@@ -19,7 +22,7 @@ app.get('/', (req, res) => {
 
 //index
 app.get('/pokemon', (req, res) => {
-    res.send(pokemon)
+    res.render('Index', {pokemon: pokemon})
 });
 
 
